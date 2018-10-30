@@ -13,11 +13,13 @@
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/modal.js') }}" defer></script>
 
     <!-- Fonts -->
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/overwrite.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 </head>
@@ -75,7 +77,7 @@
         @yield('content')
     </main>
 </div>
-<nav id="app" class="navbar navbar-expand-md navbar-light navbar-laravel footer justify-content-center">
+<nav id="footer" class="navbar navbar-expand-md navbar-light navbar-laravel footer justify-content-center">
    ANDA - Anime Database made with&nbsp;<i class="fa fa-heart"></i>
 </nav>
 </body>

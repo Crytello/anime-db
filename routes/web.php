@@ -21,7 +21,10 @@ Route::get('anime/edit/{id}', 'AnimeController@edit');
 Route::get('anime/show/{id}', 'AnimeController@show');
 Route::post('anime/store/', 'AnimeController@store');
 Route::put('anime/update/{id}', 'AnimeController@update');
-Route::delete('anime/delete/{id}', 'AnimeController@destroy');
+Route::get('/anime/delete/{id}', 'AnimeController@destroy');
+Route::delete('/anime/delete/{id}', 'AnimeController@destroy');
+
+
 
 Route::get('watchlist/index', 'WatchlistController@index');
 Route::get('watchlist/create/{userID}/{$animeID}', 'WatchlistController@create');

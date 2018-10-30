@@ -44,7 +44,6 @@
 }
 
 html {
-  height: 100%;
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -71,9 +70,6 @@ section {
 }
 
 body {
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: 1fr auto;
   margin: 0;
   font-family: "Nunito", sans-serif;
   font-size: 0.9rem;
@@ -10474,18 +10470,5 @@ a.text-dark:focus {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
-#rightSideOfAnimeShow, #leftSideOfAnimeShow, #footer{
-  background: rgb(233, 236, 239);
-}
-
-#middleSideOfAnimeShow{
-  background: white;
-}
-
-.footer {
-  grid-row-start: 2;
-  grid-row-end: 3;
 }
 

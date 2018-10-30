@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Validator;
-use phpDocumentor\Reflection\DocBlock\Tags\Method;
 
 class AnimeController extends Controller
 {
@@ -57,18 +56,9 @@ class AnimeController extends Controller
         // store
         $anime = new Anime();
         $anime->name     = $request->input('name');
-        $anime->quelle   = $request->input('quelle');
-        $anime->p_year   = $request->input('year');
-        $anime->status   = $request->input('status');
-        $anime->studio   = $request->input('studio');
-        $anime->folgen_gesamt   = $request->input('folgen_gesamt');
-        $anime->folgen_aktuell   = $request->input('folgen_aktuell');
-        $anime->favorite = $request->input('favorite');
         $anime->save();
 
-        // redirect
-        //Session::flash('message', 'Successfully created nerd!');
-        return back();
+        return view('anime.edit')->withAnime($anime);
         //}
     }
 
@@ -133,11 +123,20 @@ class AnimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
+        if ($request->isMethod('delete'))
+        {
+            $anime = Anime::find($id);
+            $anime->delete();
+            return back();
+        }
 
-        $anime = Anime::find($id)->delete();
-        return back();
+        else
+        {
+            $anime = Anime::find($id);
 
+            return view('anime.delete')->withAnime($anime);
+        }
     }
 }

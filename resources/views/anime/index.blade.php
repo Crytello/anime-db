@@ -12,7 +12,13 @@
         <div class="row justify-content-center">
             <div class="col">
                 <div class="panel">
-                    &nbsp;<a class="btn btn-primary" href="/anime/create"><i class="fas fa-plus"></i>&nbsp;Neuen Anime hinzufügen</a>
+                    <a href="/anime/create"
+                       type="button"
+                       class="btn btn-primary"
+                       data-toggle="modal"
+                       data-target="#genericModal">
+                        <i class="fas fa-plus">&nbsp;Neuen Anime hinzufügen</i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -52,7 +58,13 @@
                                     <td>{{$anime->status}}</td>
                                     <td>{{$anime->folgen_gesamt}}</td>
                                     <td>{{$anime->folgen_aktuell}}</td>
-                                    <td>{{$anime->favorite}}</td>
+                                    <td class="text-centers">
+                                        @if($anime->favorite)
+                                            <i class="fas fa-heart"></i>
+                                        @else
+                                            <i class="far fa-heart"></i>
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -71,6 +83,44 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal" id="genericModal" tabindex="false" data-backdrop="static" data-keyboard="false" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px;">&times;</button>
+                        <h4 class="modal-title" id="ModalLabel"></h4>
+                    </div>
+                    {{Form::open(array('action' => 'AnimeController@store', 'id' => 'genericModal', 'method'=>'POST'))}}
+                    <div class="modal-body generic-modal-body">
+                        <div class="form-group">
+                            {{Form::label('name', 'Name des Animes')}}
+                            {{Form::text('name', null, ['class' => 'form-control'])}}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" type="button" data-dismiss="modal">Abbrechen</button>
+                        <button type="submit" class="btn btn-default">Speichern</button>
+                    </div>
+                    {{ Form::close() }}
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="genericDeleteModal" data-backdrop="static" data-keyboard="false" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                        <h4 class="modal-title">Neu</h4>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    @include('anime.delete')
+
+
 @endsection
+

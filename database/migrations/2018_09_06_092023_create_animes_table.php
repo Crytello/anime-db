@@ -16,11 +16,12 @@ class CreateAnimesTable extends Migration
         Schema::create('animes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('quelle');
-            $table->date('p_year');
-            $table->string('studio');
-            $table->tinyInteger('favorite');
-            $table->string('status');
+            $table->string('quelle')->nullable();
+            $table->year('p_year')->nullable();
+            $table->string('studio')->nullable();
+            $table->tinyInteger('favorite')->nullable();
+            $table->string('status')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
