@@ -25,6 +25,10 @@ Route::get('/anime/delete/{id}', 'AnimeController@destroy');
 Route::delete('/anime/delete/{id}', 'AnimeController@destroy');
 
 
+Route::get('/profile/edit', ['as' => 'profile.edit', 'uses' => 'UserController@edit']);
+Route::put('/profile/update/', ['as' => 'profile.update', 'uses' => 'UserController@update']);
+
+
 
 Route::get('watchlist/index', 'WatchlistController@index');
 Route::get('watchlist/create/{userID}/{$animeID}', 'WatchlistController@create');

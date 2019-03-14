@@ -12,9 +12,8 @@
             </nav>
         </div>
 
-        <div class="row justify-content-center">
-            <h3 class="panel-title">{{$anime->name}}</h3>
-        </div>
+
+            <div><i class="fas fa-trash"></i></div>
         <div class="row">
             <div id="leftSideOfAnimeShow" class="col">
                 <p>PLACEHOLDER BILD</p>

@@ -36,7 +36,7 @@
                                 <th>Quelle</th>
                                 <th>Erscheinungsjahr</th>
                                 <th>Studio</th>
-                                <th>Status</th>
+                                <th>Status<i class="fab fa-amazon"></i></th>
                                 <th>Gesamtzahl Folgen</th>
                                 <th>Aktuelle Folge</th>
                                 <th>Favorit</th>
